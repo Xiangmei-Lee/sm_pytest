@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>야 너두 파이썬?</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">야 너두 파이썬?</h1>
+
+    <!-- 파이썬 문제 제시 블록 -->
+    <div class="block" id="question-block">
+      <h2>💻 파이썬 코드 문제</h2>
+      <pre id="python-question">{{ quiz.code }}</pre>
+    </div>
+
+    <!-- 정답 입력칸 -->
+    <div class="block" id="answer-block">
+      <h2>✍️ 정답을 입력하세요</h2>
+      <form id="answer-form">
+        <input type="text" id="user-answer" placeholder="예: 3 + 2 = 5" required />
+        <button type="submit">제출</button>
+      </form>
+    </div>
+
+    <!-- 정답 여부 결과 블록 -->
+    <div class="block" id="result-block">
+      <h2>✅ 결과</h2>
+      <p id="result-message">정답을 입력해보세요!</p>
+    </div>
+
+    <!-- 정답은 JS에서 비교를 위해 숨겨진 input으로 전달 -->
+    <input type="hidden" id="correct-answer" value="{{ quiz.answer }}">
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
